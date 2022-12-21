@@ -1,3 +1,41 @@
+<?php
+
+
+$alphabetLowerChars = "abcdefghilmnopqrstuvwxyz";
+$alphabetUppercaseChars = "ABCDEFGHILMNOPQRSTUVWXYZ";
+$integersChars = "0123456789";
+$symbolsChars = "+-_/|\£$%&?^@#*§ç°";
+
+$admittedChars = [];
+/* if lowerCharsIsAdmitted  */
+$admittedChars = $alphabetLowerChars . $alphabetUppercaseChars . $integersChars . $symbolsChars;
+
+if (isset($_GET["password-lenght"])) {
+  $passwordLength = $_GET["password-lenght"];
+  var_dump("passwordLength:" . $passwordLength);
+}
+
+/* $randomIndex = rand(0, strlen($admittedChars) - 1);
+var_dump(" random index: " . $randomIndex); */
+
+var_dump(" admittedChars: " . $admittedChars);
+
+$i = 0;
+$randomPassword = "";
+while ($i <= $passwordLength) {
+  $randomIndex = rand(0, strlen($admittedChars) - 1);
+  var_dump(" random index: " . $randomIndex);
+
+  $randomPassword .= $admittedChars[rand(0, $randomIndex)];
+  var_dump($randomPassword);
+
+  $i++;
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,13 +58,13 @@
 
 <body>
   <div class="container border rounded-4 py-3 px-5">
-    <legend class="fs-1 fw-1">Crea Password:</legend>
+    <legend class="fs-1 fw-1">Genera Password:</legend>
     <form>
 
       <div class="form-group row">
         <label for="password-length" class="col-5 col-form-label">Specifica da quanti caratteri deve essere formata la tua password</label>
         <div class="col-7 ">
-          <input type="number" class="form-control" id="password-length">
+          <input type="number" class="form-control" id="password-length" name="password-lenght">
         </div>
       </div>
 
@@ -80,7 +118,10 @@
       </div> -->
       <div class="form-group row py-3">
         <div class="col-sm-10">
-          <button type="submit" class="btn btn-primary">Sign in</button>
+          <!--     <button type="submit" class="btn btn-secondary mx-2">Cancella</button> -->
+          <button type="submit" class="btn btn-primary mx-2">Genera</button>
+
+
         </div>
       </div>
     </form>
