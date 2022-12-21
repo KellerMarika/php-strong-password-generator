@@ -1,36 +1,5 @@
 <?php
-
-
-$alphabetLowerChars = "abcdefghilmnopqrstuvwxyz";
-$alphabetUppercaseChars = "ABCDEFGHILMNOPQRSTUVWXYZ";
-$integersChars = "0123456789";
-$symbolsChars = "+-_/|\£$%&?^@#*§ç°";
-
-$admittedChars = [];
-/* if lowerCharsIsAdmitted  */
-$admittedChars = $alphabetLowerChars . $alphabetUppercaseChars . $integersChars . $symbolsChars;
-
-if (isset($_GET["password-lenght"])) {
-  $passwordLength = $_GET["password-lenght"];
-  var_dump("passwordLength:" . $passwordLength);
-}
-
-/* $randomIndex = rand(0, strlen($admittedChars) - 1);
-var_dump(" random index: " . $randomIndex); */
-
-var_dump(" admittedChars: " . $admittedChars);
-
-$i = 0;
-$randomPassword = "";
-while ($i <= $passwordLength) {
-  $randomIndex = rand(0, strlen($admittedChars) - 1);
-  var_dump(" random index: " . $randomIndex);
-
-  $randomPassword .= $admittedChars[rand(0, $randomIndex)];
-  var_dump($randomPassword);
-
-  $i++;
-}
+include_once "functions.php";
 
 
 
@@ -64,11 +33,11 @@ while ($i <= $passwordLength) {
       <div class="form-group row">
         <label for="password-length" class="col-5 col-form-label">Specifica da quanti caratteri deve essere formata la tua password</label>
         <div class="col-7 ">
-          <input type="number" class="form-control" id="password-length" name="password-lenght">
+          <input type="number" class="form-control" id="password-length" name="password-lenght" value="<?php echo isset($_GET["password-lenght"]) ? $_GET["password-lenght"] : "" ?>">
         </div>
       </div>
 
-      <!-- <fieldset class="form-group">
+ <fieldset class="form-group">
         <legend class="col-form-label col-sm-2 pt-0 fs-2 fw-2">Preferenze:</legend>
 
         <div class="row py-3 border-bottom">
@@ -76,20 +45,20 @@ while ($i <= $passwordLength) {
 
           <div class="col-sm-10">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="chars" id="alphabet-chars" value="true" checked>
+              <input class="form-check-input" type="checkbox"  <?php echo isset($_GET["alphabet"]) ? "checked" : "" ?> name="alphabet" id="alphabet-chars" value="true">
               <label class="form-check-label" for="alphabet-chars">
                 Lettere
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="chars" id="integer-chars" value="true">
+              <input class="form-check-input" type="checkbox"  <?php echo isset($_GET["integers"]) ? "checked" : "" ?> name="integers" id="integer-chars" value="true">
               <label class="form-check-label" for="integer-chars">
                 Numeri
               </label>
             </div>
 
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="chars" id="symbols-chars" value="true">
+              <input class="form-check-input" type="checkbox"  <?php echo isset($_GET["symbols"]) ? "checked" : "" ?> name="symbols" id="symbols-chars" value="true">
               <label class="form-check-label" for="symbols-chars">
                 Simboli
               </label>
@@ -98,7 +67,7 @@ while ($i <= $passwordLength) {
           </div>
         </div>
       </fieldset>
-      <div class="form-group row  py-3 border-bottom">
+      <!-- <div class="form-group row  py-3 border-bottom">
         <div class="col-sm-2">ripetizioni:</div>
         <div class="col-sm-10">
           <div class="form-check">
@@ -115,7 +84,7 @@ while ($i <= $passwordLength) {
             </label>
           </div>
         </div>
-      </div> -->
+      </div>  -->
       <div class="form-group row py-3">
         <div class="col-sm-10">
           <!--     <button type="submit" class="btn btn-secondary mx-2">Cancella</button> -->
