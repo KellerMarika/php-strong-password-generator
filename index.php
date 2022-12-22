@@ -1,6 +1,6 @@
 <?php
 require_once "functions.php";
-session_start()
+ session_start() 
 ?>
 
 <!DOCTYPE html>
@@ -86,7 +86,7 @@ session_start()
       <div class="form-group row py-3">
         <div class="col-sm-10">
           <button type="submit" class="btn btn-secondary mx-2"><a href="index.php" class="text-light text-decoration-none">Cancella</a></button>
-          <button type="submit" class="btn btn-primary mx-2">Genera</button>
+          <button type="submit" class="btn btn-primary mx-2"><a href="showPassword.php" class="text-light text-decoration-none">Genera</button>
         </div>
       </div>
     </form>
