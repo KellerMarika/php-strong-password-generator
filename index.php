@@ -69,14 +69,14 @@ session_start()
         <div class="col-sm-10">
           <div class="form-check">
             <!-- non riesco!!!! -->
-            <input class="form-check-input" type="radio" id="repeat-true" name="repeat" value="1">
+            <input class="form-check-input" type="radio" id="repeat-true" name="repeat" value="1" <?php echo $repeatChars ? "checked" : "" ?>>
             <label class="form-check-label" for="repeat-true">
               permesse
             </label>
           </div>
 
           <div class="form-check">
-            <input class="form-check-input" type="radio" id="repeat-false" name="repeat" value="0">
+            <input class="form-check-input" type="radio" id="repeat-false" name="repeat" value="0" <?php echo !$repeatChars ? "checked" : "" ?>>
             <label class="form-check-label" for="repeat-false">
               negate
             </label>

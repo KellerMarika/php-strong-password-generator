@@ -1,32 +1,30 @@
 <?php
 
 /* DATI */
-$passwordLength = isset($_GET["password-lenght"]) ? $_GET["password-lenght"] : "";
-echo ("passwordLength:" . $passwordLength . "<br>");
+$passwordLength = $_GET["password-lenght"]??  "";
 
-$repeatChars = isset($_GET["repeat"]) ? $_GET["repeat"] :false;
-echo ("repeatChar:" . $repeatChars . "<br>");
+$repeatChars = $_GET["repeat"] ?? false;
 
 $charsList = [
   [
     "name" => "alphabetLowercase",
     "chars" => "abcdefghilmnopqrstuvwxyz",
-    "isIncluded" => isset($_GET["alphabet"]) ? $_GET["alphabet"] : false,
+    "isIncluded" => $_GET["alphabet"]??  false,
   ],
   [
     "name" => "alphabetUppercase",
     "chars" => "ABCDEFGHILMNOPQRSTUVWXYZ",
-    "isIncluded" => isset($_GET["alphabet"]) ? $_GET["alphabet"] : false,
+    "isIncluded" =>$_GET["alphabet"]??  false,
   ],
   [
     "name" => "integers",
     "chars" => "0123456789",
-    "isIncluded"  => isset($_GET["integers"]) ? $_GET["integers"] : false,
+    "isIncluded"  => $_GET["integers"] ?? false,
   ],
   [
     "name" => "symbols",
     "chars" => "+-_/|\£%&?^@#*§ç>°",
-    "isIncluded"  => isset($_GET["symbols"]) ? $_GET["symbols"] : false,
+    "isIncluded"  => $_GET["symbols"]?? false,
   ],
 ];
 
@@ -37,7 +35,7 @@ foreach ($charsList as $charsType) {
     $admittedChars .= $charsType["chars"];
   }
 }
-echo  "$admittedChars <br>";
+//echo  "$admittedChars <br>";
 
 
 function a($passwordLength, $admittedChars, $repeatChars)
