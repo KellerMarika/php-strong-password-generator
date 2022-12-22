@@ -1,8 +1,6 @@
 <?php
-include_once "functions.php";
-
-
-
+require_once "functions.php";
+session_start()
 ?>
 
 <!DOCTYPE html>
@@ -63,7 +61,6 @@ include_once "functions.php";
                 Simboli
               </label>
             </div>
-
           </div>
         </div>
       </fieldset>
@@ -72,14 +69,14 @@ include_once "functions.php";
         <div class="col-sm-10">
           <div class="form-check">
             <!-- non riesco!!!! -->
-            <input class="form-check-input" type="radio" id="repeat-true" name="repeat" value="true" checked>
+            <input class="form-check-input" type="radio" id="repeat-true" name="repeat" value="true">
             <label class="form-check-label" for="repeat-true">
               permesse
             </label>
           </div>
 
           <div class="form-check">
-            <input class="form-check-input" type="radio" id="repeat-false" name="repeat" value="false" >
+            <input class="form-check-input" type="radio" id="repeat-false" name="repeat" value="false">
             <label class="form-check-label" for="repeat-false">
               negate
             </label>
@@ -88,16 +85,13 @@ include_once "functions.php";
       </div>
       <div class="form-group row py-3">
         <div class="col-sm-10">
-          <!--     <button type="submit" class="btn btn-secondary mx-2">Cancella</button> -->
+          <button type="submit" class="btn btn-secondary mx-2"><a href="index.php" class="text-light text-decoration-none">Cancella</a></button>
           <button type="submit" class="btn btn-primary mx-2">Genera</button>
-
-
         </div>
       </div>
     </form>
   </div>
 </body>
-
 </html>
 
 <style>

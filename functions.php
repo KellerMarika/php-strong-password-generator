@@ -4,8 +4,8 @@
 $passwordLength = isset($_GET["password-lenght"]) ? $_GET["password-lenght"] : "";
 echo ("passwordLength:" . $passwordLength . "<br>");
 
-$repeatChar = isset($_GET["repeat"]) ? $_GET["repeat"] : "false";
-echo ("repeatChar:" . $repeatChar . "<br>");
+$repeatChars = isset($_GET["repeat"]) ? $_GET["repeat"] :false;
+echo ("repeatChar:" . $repeatChars . "<br>");
 
 $charsList = [
   [
@@ -40,7 +40,7 @@ foreach ($charsList as $charsType) {
 echo  "$admittedChars <br>";
 
 
-function a($passwordLength, $admittedChars, $repeatChar)
+function a($passwordLength, $admittedChars, $repeatChars)
 {
 
   $randomPassword = "";
@@ -48,7 +48,7 @@ function a($passwordLength, $admittedChars, $repeatChar)
     $randomIndex = rand(0, strlen($admittedChars) - 1);
 
     //controllo che non funziona
-    if ($repeatChar == false) {
+    if ($repeatChars == false) {
       echo "repeat-false";
       if (!str_contains($randomPassword, $admittedChars[$randomIndex])) {
         $randomPassword .= $admittedChars[$randomIndex];
@@ -56,11 +56,10 @@ function a($passwordLength, $admittedChars, $repeatChar)
       }
     } else {
       echo "repeat-true";
-
       $randomPassword .= $admittedChars[$randomIndex];
       echo ($randomPassword . "<br>");
     }
   }
 };
 
-a($passwordLength, $admittedChars, $repeatChar);
+a($passwordLength, $admittedChars, $repeatChars);
