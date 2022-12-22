@@ -1,6 +1,12 @@
 <?php
 require_once "functions.php";
-session_start()
+session_start();
+
+if(!empty($passwordLength)){
+$_SESSION["randomPassword"]=createPassword($passwordLength, $admittedChars, $repeatChars);
+var_dump( $_SESSION["randomPassword"]);
+header("Location:showPw.php");
+}
 ?>
 
 <!DOCTYPE html>

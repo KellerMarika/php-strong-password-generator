@@ -1,7 +1,7 @@
 <?php
 
 /* DATI */
-$passwordLength = $_GET["password-lenght"]??  "";
+$passwordLength = $_GET["password-lenght"] ??  "";
 
 $repeatChars = $_GET["repeat"] ?? false;
 
@@ -9,12 +9,12 @@ $charsList = [
   [
     "name" => "alphabetLowercase",
     "chars" => "abcdefghilmnopqrstuvwxyz",
-    "isIncluded" => $_GET["alphabet"]??  false,
+    "isIncluded" => $_GET["alphabet"] ??  false,
   ],
   [
     "name" => "alphabetUppercase",
     "chars" => "ABCDEFGHILMNOPQRSTUVWXYZ",
-    "isIncluded" =>$_GET["alphabet"]??  false,
+    "isIncluded" => $_GET["alphabet"] ??  false,
   ],
   [
     "name" => "integers",
@@ -24,7 +24,7 @@ $charsList = [
   [
     "name" => "symbols",
     "chars" => "+-_/|\£%&?^@#*§ç>°",
-    "isIncluded"  => $_GET["symbols"]?? false,
+    "isIncluded"  => $_GET["symbols"] ?? false,
   ],
 ];
 
@@ -38,7 +38,7 @@ foreach ($charsList as $charsType) {
 //echo  "$admittedChars <br>";
 
 
-function a($passwordLength, $admittedChars, $repeatChars)
+function createPassword($passwordLength, $admittedChars, $repeatChars)
 {
 
   $randomPassword = "";
@@ -47,17 +47,16 @@ function a($passwordLength, $admittedChars, $repeatChars)
 
     //controllo che non funziona
     if ($repeatChars == false) {
-      echo "repeat-false";
+
       if (!str_contains($randomPassword, $admittedChars[$randomIndex])) {
         $randomPassword .= $admittedChars[$randomIndex];
-        echo ($randomPassword . "<br>");
       }
     } else {
-      echo "repeat-true";
       $randomPassword .= $admittedChars[$randomIndex];
-      echo ($randomPassword . "<br>");
     }
   }
+  return $randomPassword;
 };
 
-a($passwordLength, $admittedChars, $repeatChars);
+/* createPassword($passwordLength, $admittedChars, $repeatChars); */
+/* var_dump(createPassword($passwordLength, $admittedChars, $repeatChars)); */
