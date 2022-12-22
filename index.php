@@ -37,7 +37,7 @@ include_once "functions.php";
         </div>
       </div>
 
- <fieldset class="form-group">
+      <fieldset class="form-group">
         <legend class="col-form-label col-sm-2 pt-0 fs-2 fw-2">Preferenze:</legend>
 
         <div class="row py-3 border-bottom">
@@ -45,20 +45,20 @@ include_once "functions.php";
 
           <div class="col-sm-10">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox"  <?php echo isset($_GET["alphabet"]) ? "checked" : "" ?> name="alphabet" id="alphabet-chars" value="true">
+              <input class="form-check-input" type="checkbox" <?php echo isset($_GET["alphabet"]) ? "checked" : "" ?> name="alphabet" id="alphabet-chars" value="true">
               <label class="form-check-label" for="alphabet-chars">
                 Lettere
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox"  <?php echo isset($_GET["integers"]) ? "checked" : "" ?> name="integers" id="integer-chars" value="true">
+              <input class="form-check-input" type="checkbox" <?php echo isset($_GET["integers"]) ? "checked" : "" ?> name="integers" id="integer-chars" value="true">
               <label class="form-check-label" for="integer-chars">
                 Numeri
               </label>
             </div>
 
             <div class="form-check">
-              <input class="form-check-input" type="checkbox"  <?php echo isset($_GET["symbols"]) ? "checked" : "" ?> name="symbols" id="symbols-chars" value="true">
+              <input class="form-check-input" type="checkbox" <?php echo isset($_GET["symbols"]) ? "checked" : "" ?> name="symbols" id="symbols-chars" value="true">
               <label class="form-check-label" for="symbols-chars">
                 Simboli
               </label>
@@ -67,24 +67,25 @@ include_once "functions.php";
           </div>
         </div>
       </fieldset>
-      <!-- <div class="form-group row  py-3 border-bottom">
+      <div class="form-group row  py-3 border-bottom">
         <div class="col-sm-2">ripetizioni:</div>
         <div class="col-sm-10">
           <div class="form-check">
-            <input class="form-check-input" type="radio" id="repeat-true" name="repeat" value="true">
+            <!-- non riesco!!!! -->
+            <input class="form-check-input" type="radio" id="repeat-true" name="repeat" value="true" checked>
             <label class="form-check-label" for="repeat-true">
               permesse
             </label>
           </div>
 
           <div class="form-check">
-            <input class="form-check-input" type="radio" id="repeat-false" name="repeat" value="false">
+            <input class="form-check-input" type="radio" id="repeat-false" name="repeat" value="false" >
             <label class="form-check-label" for="repeat-false">
               negate
             </label>
           </div>
         </div>
-      </div>  -->
+      </div>
       <div class="form-group row py-3">
         <div class="col-sm-10">
           <!--     <button type="submit" class="btn btn-secondary mx-2">Cancella</button> -->

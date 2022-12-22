@@ -1,7 +1,11 @@
 <?php
 
+/* DATI */
 $passwordLength = isset($_GET["password-lenght"]) ? $_GET["password-lenght"] : "";
 echo ("passwordLength:" . $passwordLength . "<br>");
+
+$repeatChar = isset($_GET["repeat"]) ? $_GET["repeat"] : "false";
+echo ("repeatChar:" . $repeatChar . "<br>");
 
 $charsList = [
   [
@@ -27,26 +31,36 @@ $charsList = [
 ];
 
 $admittedChars = "";
-
+//creo stringa di caratteri sulla base dei valori passati attraverso il GET (stoccati in $charsList)
 foreach ($charsList as $charsType) {
-
   if ($charsType["isIncluded"]) {
     $admittedChars .= $charsType["chars"];
-    echo  "$admittedChars <br>";
   }
 }
+echo  "$admittedChars <br>";
 
 
+function a($passwordLength, $admittedChars, $repeatChar)
+{
 
+  $randomPassword = "";
+  while (strlen($randomPassword) < $passwordLength) {
+    $randomIndex = rand(0, strlen($admittedChars) - 1);
 
-/* $i = 0;
-$randomPassword = "";
-while ($i <= $passwordLength) {
-  $randomIndex = rand(0, strlen($admittedChars) - 1);
-  var_dump(" random index: " . $randomIndex);
+    //controllo che non funziona
+    if ($repeatChar == false) {
+      echo "repeat-false";
+      if (!str_contains($randomPassword, $admittedChars[$randomIndex])) {
+        $randomPassword .= $admittedChars[$randomIndex];
+        echo ($randomPassword . "<br>");
+      }
+    } else {
+      echo "repeat-true";
 
-  $randomPassword .= $admittedChars[rand(0, $randomIndex)];
-  var_dump($randomPassword);
+      $randomPassword .= $admittedChars[$randomIndex];
+      echo ($randomPassword . "<br>");
+    }
+  }
+};
 
-  $i++;
-} */
+a($passwordLength, $admittedChars, $repeatChar);
