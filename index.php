@@ -1,6 +1,6 @@
 <?php
 require_once "functions.php";
- session_start() 
+session_start()
 ?>
 
 <!DOCTYPE html>
@@ -69,14 +69,14 @@ require_once "functions.php";
         <div class="col-sm-10">
           <div class="form-check">
             <!-- non riesco!!!! -->
-            <input class="form-check-input" type="radio" id="repeat-true" name="repeat" value="true">
+            <input class="form-check-input" type="radio" id="repeat-true" name="repeat" value="1">
             <label class="form-check-label" for="repeat-true">
               permesse
             </label>
           </div>
 
           <div class="form-check">
-            <input class="form-check-input" type="radio" id="repeat-false" name="repeat" value="false">
+            <input class="form-check-input" type="radio" id="repeat-false" name="repeat" value="0">
             <label class="form-check-label" for="repeat-false">
               negate
             </label>
@@ -86,7 +86,7 @@ require_once "functions.php";
       <div class="form-group row py-3">
         <div class="col-sm-10">
           <button type="submit" class="btn btn-secondary mx-2"><a href="index.php" class="text-light text-decoration-none">Cancella</a></button>
-          <button type="submit" class="btn btn-primary mx-2"><a href="showPassword.php" class="text-light text-decoration-none">Genera</button>
+          <button type="submit" class="btn btn-primary mx-2">Genera</button>
         </div>
       </div>
     </form>
